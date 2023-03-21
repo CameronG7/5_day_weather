@@ -29,12 +29,13 @@
                 <form class="d-grid gap-2 pb-2 mx-auto" style="width: 80%;">
                     <div class="mb-3">
                         <h1 class="pb-3">Search for a City:</h1>
-                        <input type="text" class="form-control" placeholder="Los Angeles" id="cityInput">
+                        <!-- user input -->
+                        <input type="text" id="cityInput" class="form-control" placeholder="Los Angeles" >
                     </div>
-                    <button class="btn btn-primary searchButton" type="button">Search</button>
+                    <button id="searchButton" class="btn btn-primary " type="button">Search</button>
                     <hr class="border border-primary">
                 </form>
-
+                <!-- recent searches -->
                 <div id="recentSearch" class="d-grid gap-3 mx-auto" style="width: 80%;">
                     <button class="btn btn-secondary" type="button">Button</button>
                     <button class="btn btn-secondary" type="button">Button</button>
@@ -55,6 +56,7 @@
             <div class="container col-8 ">
                 <div class="row mx-auto ">
                     <div class="border border-dark mb-3"  style="width: 80%;">
+                        <!-- current weather -->
                         <h1 id="currentWeather" class="pb-3"> city and current date</h1>
                         <h5>temp: <span  id="currTemp">test</span></h5>
                         <h5>wind: <span id="currWind"></span></h5>
@@ -64,18 +66,24 @@
                 </div>
                 <div class="row cardHolder" style="width: 80%;">
                     <!-- card -->
+                    <!-- give id called weather [i]? -->
                     <div class="card mx-1 col" >
-                        <img src="" class="card-img-top" alt="">
+                        
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the
-                                card's content.</p>
+                            <h5 class="card-title">Card title</h5> <!-- date here?-->
+
+                            <h6 class="card-text">temp: </h6>
+                            <h6 id="dayWind" class="card-text">wind:</h6>
+                            <h6 id="dayHum" class="card-text">humidity:</h6>
+                            
                            
                         </div>
                     </div>
                     <!-- card -->
+
+
+
+                    <!-- extra cards -->
                     <div class="card mx-1 col" >
                         <img src="" class="card-img-top" alt="">
                         <div class="card-body">
@@ -132,7 +140,7 @@
     
 
 
-    
+    <script src="./assets/js/config.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 

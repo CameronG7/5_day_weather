@@ -24,7 +24,7 @@
     
         <div class="row mx-0 gx-5 ">
 
-            <div class="col searchZone ps-5" >
+            <div class="col-12 col-sm searchZone ps-4" >
 
                 <form class="d-grid gap-2 pb-2 mx-auto" style="width: 80%;">
                     <div class="mb-3">
@@ -54,83 +54,20 @@
             </div>
 
             <div class="container col-8 ">
-                <div class="row mx-auto ">
-                    <div class="border border-dark mb-3"  style="width: 80%;">
+                <div class="row mx-auto d-flex justify-content-center">
+                    <div class="border border-dark my-3"  style="width: 80%;">
                         <!-- current weather -->
                         <h1 id="currentWeather" class="pb-3"> city and current date</h1>
-                        <h5>temp: <span  id="currTemp">test</span></h5>
+                        <h5>temp: <span  id="currTemp"></span></h5>
                         <h5>wind: <span id="currWind"></span></h5>
                         <h5>humidity: <span id="currHum"></span></h5>
 
                     </div>
                 </div>
-                <div class="row cardHolder" style="width: 80%;">
+                <div id="cardHolder" class="row mx-auto d-flex justify-content-center" style="width: 80%;">
                     <!-- card -->
                     <!-- give id called weather [i]? -->
-                    <div class="card mx-1 col" >
-                        
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5> <!-- date here?-->
-
-                            <h6 class="card-text">temp: </h6>
-                            <h6 id="dayWind" class="card-text">wind:</h6>
-                            <h6 id="dayHum" class="card-text">humidity:</h6>
-                            
-                           
-                        </div>
-                    </div>
-                    <!-- card -->
-
-
-
-                    <!-- extra cards -->
-                    <div class="card mx-1 col" >
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the
-                                card's content.</p>
-                           
-                        </div>
-                    </div>
-                    <!-- card -->
-                    <div class="card mx-1 col" >
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the
-                                card's content.</p>
-                           
-                        </div>
-                    </div>
-                    <!-- card -->
-                    <div class="card mx-1 col" >
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the
-                                card's content.</p>
-                           
-                        </div>
-                    </div>
-                    <!-- card -->
-                    <div class="card mx-1 col" >
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the
-                                card's content.</p>
-                           
-                        </div>
-                    </div>
+                    
                     <!-- card -->
                     
                 </div>
@@ -139,9 +76,75 @@
         </div>
     
 
-
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.7/dayjs.min.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.7/plugin/utc.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_utc)</script>  
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
+<!-- <div class="card m-1 col-12 col-sm" >
+                        
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>  date here?
+
+        <h6 id="dayTemp" class="card-text">temp: </h6>
+        <h6 id="dayWind" class="card-text">wind:</h6>
+        <h6 id="dayHum" class="card-text">humidity:</h6>
+        
+       
+    </div>
+</div> -->
+<!-- card
+
+
+ extra cards
+<div class="card m-1 col-12 col-xxl" >
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+            of
+            the
+            card's content.</p>
+       
+    </div>
+</div>
+ card 
+<div class="card m-1 col-12 col-xxl" >
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+            of
+            the
+            card's content.</p>
+       
+    </div>
+</div>
+ card 
+<div class="card m-1 col-12 col-xxl" >
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+            of
+            the
+            card's content.</p>
+       
+    </div>
+</div>
+<card 
+<div class="card m-1 col-12 col-xxl" >
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+            of
+            the
+            card's content.</p>
+       
+    </div>
+</div> -->

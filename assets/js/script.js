@@ -16,7 +16,7 @@ var cityLon = 0;
 var cityLat = 0;
 
 
-searchButtonEl.on("click", grabWeather);
+searchButtonEl.on("click", grabWeather); 
 
 var recentSearch = JSON.parse(localStorage.getItem("Recent Searches"))
 if(recentSearch !== null )
@@ -151,9 +151,7 @@ function grabWeather() {
 	
 					count++
 					if (count % 8 === 1) { // use temp get to get the highest temp from teh last 8 time stamps
-						 // this is needed but breaks everything
-						console.log(tempGet, dayjs.unix(element.dt).format('MM/DD/YYYY') )
-						console.log('^should be 8')
+						
 						// best situation would be to use tempGet value to find the index in the array and parse weather conditions from that array element but thats tedious 
 						var $cardWeather = $('<div>', {"class": "card m-1 col-12 col-sm" })
 						var $cardIcon = $('<img>', {"class": "card-img-top", "src": `https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png`})

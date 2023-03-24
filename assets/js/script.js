@@ -18,18 +18,50 @@ var cityLat = 0;
 
 searchButtonEl.on("click", grabWeather);
 
-
+var recentSearch = JSON.parse(localStorage.getItem("Recent Searches"))
+if(recentSearch !== null )
+{
+	for (var i = 0; i < recentSearch.length; i++) 
+	{ 
+	// for each score in the array makes a p tag and sets the text to the name and score of the current element then appends to highscore list
+	var buttonEl = $('<button>', {"class": "btn btn-secondary", "type": "button" });
+	buttonEl.text(`${recentSearch[i].city}`);
+	recentEl.prepend(buttonEl);
+   }
+}
 
 let $cardWeather = ('<div>', {"class": "card m-1 col-12 col-sm" })
+function handleSubmit(event) {//handle submit and save score to local storage with user initials
+	event.preventDefault();
+	console.log("test")
+    grabWeather();
+    cityEl.val("");
+
+};
 
 
 
+recentEl.children().on('click',function(event) {
+	event.preventDefault();
+	cityEl.val() = event.target.textcontent()
+	cityEl.click();
+});
 
 
+$(document).ready(function() {// if user presses enter instead of using the search button, the page functions as if search was pressed
+    cityEl.keydown(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+			grabWeather();
 
+         }
+    });
+});
 
 function grabCoord() {
-	
+	if (cityEl.val()==""){
+		return
+	}
 	const UserCity = cityEl.val();
 	console.log(UserCity);
 	const coordURL = `https://api.openweathermap.org/data/2.5/weather?q=${UserCity}&units=imperial&appid=${MyKey}`;
@@ -38,8 +70,13 @@ function grabCoord() {
 			return response.json();
 		})
 		.then(function (data) {
-
-			currWeatherEl.text(`${UserCity} (${dayjs.unix(data.dt).format('MM/DD/YYYY')})`)
+			if(data.cod!== 200)
+			{
+				return
+			}
+			console.log(data);
+			cityEl.val(data.name);
+			currWeatherEl.text(`${data.name} (${dayjs.unix(data.dt).format('MM/DD/YYYY')})`)
 			currTempEl.text( `${Math.round(data.main.temp)}\u00B0F`)
 			currWindEl.text(`${data.wind.speed}mph`)
 			currHumEl.text(`${data.main.humidity}%`)
@@ -52,10 +89,44 @@ function grabCoord() {
 	
 }
 function grabWeather() {
+	if (cityEl.val()==""){ //cancel if no city input
+		return
+	}
+	recentEl.empty();
+	if(recentSearch==null)
+	{
+		recentSearch =[];
+	}
+	if (cityEl.val()!=='')
+	{
+		var newCity =
+		{
+			"city": cityEl.val(),
+		}
+		if (newCity.city !== "")
+		{
+			recentSearch.push(newCity)
+			if (recentSearch.length > 10){ //only hold 10 recent search results
+				recentSearch.shift();
+				
+			}
+			localStorage.setItem("Recent Searches", JSON.stringify(recentSearch));
+		}
+	}
+	for (var i = 0; i < recentSearch.length; i++) { 
+		// for each score in the array makes a p tag and sets the text to the name and score of the current element then appends to highscore list
+		var buttonEl = $('<button>', {"class": "btn btn-secondary", "type": "button" });
+		buttonEl.text(`${recentSearch[i].city}`);
+		recentEl.prepend(buttonEl);
+	   
+	}
 	
-	localStorage.setItem(cityEl.val(), cityEl.val()) 
     grabCoord();
     setTimeout(function () {
+		cityEl.val("");
+		if (cityLon ===0 && cityLat ===0){
+			return
+		}
 		console.log(cityLat, cityLon);
         
         const weathURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${cityLat}&lon=${cityLon}&appid=${MyKey}&units=imperial`;
@@ -77,7 +148,7 @@ function grabWeather() {
 					{
 						tempGet = element.main.temp //search for max temp
 					}
-					console.log(count, element.main.temp );
+	
 					count++
 					if (count % 8 === 1) { // use temp get to get the highest temp from teh last 8 time stamps
 						 // this is needed but breaks everything
@@ -113,6 +184,6 @@ function grabWeather() {
 				});
 			});
        
-    }, 500)  
+    }, 1000)  
 	
 };

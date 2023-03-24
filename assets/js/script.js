@@ -31,7 +31,7 @@ if(recentSearch !== null )
 }
 
 let $cardWeather = ('<div>', {"class": "card m-1 col-12 col-sm" })
-function handleSubmit(event) {//handle submit and save score to local storage with user initials
+function handleSubmit(event) {
 	event.preventDefault();
 	console.log("test")
     grabWeather();
@@ -41,10 +41,10 @@ function handleSubmit(event) {//handle submit and save score to local storage wi
 
 
 
-recentEl.children().on('click',function(event) {
+recentEl.on('click', ".btn-secondary",function(event) {
 	event.preventDefault();
-	cityEl.val() = event.target.textcontent()
-	cityEl.click();
+	cityEl.val($(event.target).text()).click(); 
+	grabWeather();
 });
 
 

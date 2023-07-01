@@ -53,12 +53,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath) 
-
-
-
 ## How to Contribute
 
 My github account is [CameronG7](https://github.com/CameronG7/),  you can reach me at cameron.gardner777@gmail.com

@@ -23,6 +23,9 @@ No installtion necessary.
 
 Just open the link!
 
+![image](https://github.com/CameronG7/5_day_weather_module6/assets/122698132/e27d7378-82b8-4d4e-948e-0b854f344774)
+
+
 ## Credits
 
 This project makes use of jquery, bootstrap, and the openweather api.
